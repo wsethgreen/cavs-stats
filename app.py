@@ -27,4 +27,4 @@ def table(key):
                            html_df_10=html_df_10, html_df_5=html_df_5)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
