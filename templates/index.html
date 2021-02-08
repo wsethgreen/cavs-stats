@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block players %}
+
+<div class="players__container">
+
+    <div class = "players">
+        {% for key in cavs_stats %}
+        <a class="players__link" href='/table/{{ key }}'>{{ key }}</a>
+        {% endfor %}
+    </div>
+
+</div>
+
+{% endblock %}
+
+{% block tables %}
+
+
+<h1 class='cavs__home__header'>Cleveland Cavaliers</h1>
+
+<div class='team__stats__container'>
+    <div class='record__container'>
+        <table>
+            <tr class='home__table__headers'>
+                <th colspan='2'>Record</th>
+            </tr>
+            <tr class='home__table__col'>
+                <th class='home__table__left__col'>Wins</th>
+                <th class='home__table__right__col'>Losses</th>
+            </tr>
+            <tr class='home__table__data'>
+                <td>{{ cavs_record['W'] }}</td>
+                <td>{{ cavs_record['L'] }}</td>
+
+            </tr>
+        </table>
+    </div>
+
+    <div class="points__container">
+        <table>
+            <tr class='home__table__headers'>
+                <th colspan='2'>Points per Game</th>
+            </tr>
+            <tr class='home__table__col'>
+                <th class='home__table__left__col'>Cavs PPG</th>
+                <th class='home__table__right__col'>Opponent PPG</th>
+            </tr>
+            <tr class='home__table__data'>
+                <td>{{ cavs_ppg }}</td>
+                <td>{{ opp_ppg }}</td>
+            </tr>   
+        </table>
+    </div>
+
+</div>
+    
+
+<h3 class='misc__header'>Season Results</h3>
+
+<div class='results__container'>
+
+    {{ html_results_df | safe }}
+
+</div>
+
+{% endblock %}

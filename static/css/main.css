@@ -1,0 +1,415 @@
+* {
+    background-color: #000000;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 16px;
+    color: #f2f3f4;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    background-color: inherit;
+    border-bottom: 2px solid #860038;
+    align-items: center;
+    padding: 20px 10%;
+}
+
+.logo {
+    width: 75px;
+    height: 75px;
+}
+
+.header__title {
+    color: #FDBB30;
+    font-size: 2em;
+}
+
+.players__container {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 50px;
+    border-bottom: 2px solid #860038;
+}
+
+.players {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-top: 40px;
+    width: 80%;
+}
+
+.selected__players__link {
+    text-decoration: none;
+    color: #FDBB30;
+    font-size: 1.25em;
+    font-weight: bold;
+    padding: 10px;
+    margin: 5px;
+    background-color: #860038;
+    border: 3px solid #FDBB30;
+    border-radius: 10px;
+}
+
+.players__link {
+    text-decoration: none;
+    color: #f2f3f4;
+    font-size: 1.1em;
+    padding: 10px;
+    margin: 5px;
+    border: 2px solid #FDBB30;
+    border-radius: 10px;
+}
+
+.players__link:hover {
+    background-color: #041E42;
+    color: #FDBB30;
+    transition: all 0.2s;
+}
+
+.cavs__home__header {
+    font-size: 2em;
+    color: #FDBB30;
+    margin: 40px 0 40px 0;
+    text-align: center;
+}
+
+.team__stats__container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.record__container {
+    margin-right: 40px;
+}
+
+.points__container {
+    margin-left: 40px;
+}
+
+.home__table__headers th {
+    background-color: #860038;
+    color: #f2f3f4;
+    border-radius: 10px 10px 0 0;
+    font-size: 1.5em;
+    padding: 10px;
+}
+
+.home__table__col th {
+    background-color: #FDBB30;
+    color: #041E42;
+    font-size: 1.25em;
+    padding: 10px;
+}
+
+.home__table__left__col {
+    border-radius: 0 0 0 10px;
+}
+
+.home__table__right__col {
+    border-radius: 0 0 10px 0;
+}
+
+.home__table__data td {
+    color: #f2f3f4;
+    font-size: 1.25em;
+    padding: 10px;
+    text-align: center;
+}
+
+.dataframe.results_df__table {
+    border-collapse: collapse;
+    border: 1px solid #FDBB30;
+    margin-top: 40px;
+    width: 60%;
+}
+
+.dataframe.results_df__table th {
+    background-color: #860038;
+    text-align: center;
+    font-size: 1.25em;
+    padding: 10px;
+}
+
+.dataframe.results_df__table td {
+    font-size: 1.1em;
+    padding: 10px;
+    text-align: center;
+}
+
+.misc__header {
+    color: #FDBB30;
+    text-align: center;
+    font-size: 1.5em;
+    margin-top: 50px;
+}
+
+.table__header {
+    color: #FDBB30;
+    text-align: center;
+    font-size: 1.1em;
+}
+
+.tables__container {
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.num__tables__container {
+    display:flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-top: 50px;
+}
+
+.pcts__tables__container {
+    display:flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin-top: 50px;
+}
+
+.table__season__nums {
+    display: flex;
+    border-collapse: collapse;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.table__headers th {
+    background-color: #860038;
+    color: #f2f3f4;
+    border-radius: 10px 10px 0 0;
+    font-size: 1.1em;
+    padding: 10px;
+}
+
+.table__col th {
+    background-color: #FDBB30;
+    color: #041E42;
+    font-size: 1.1em;
+    padding: 10px;
+}
+
+.table__left__col {
+    border-radius: 0 0 0 10px;
+}
+
+.table__right__col {
+    border-radius: 0 0 10px 0;
+}
+
+.table__data td {
+    color: #f2f3f4;
+    font-size: 18px;
+    padding: 10px;
+    text-align: center;
+}
+
+.table__season__pcts {
+    display: flex;
+    border-collapse: collapse;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    margin-bottom: 35px;
+}
+
+.table__season__pcts__main {
+    background-color: #860038;
+    color: #f2f3f4;
+    border-radius: 10px;
+    font-size: 18px;
+    padding: 10px 30px;
+}
+
+.table__season__pcts__col th {
+    background-color: #860038;
+    border: 1px solid #FDBB30;
+    font-size: 18px;
+    color: #f2f3f4;
+    padding: 10px 30px;
+}
+
+#pct__data {
+    background-color: #041E42;
+    border-radius: 0 0 10px 10px;
+    color: #FDBB30;
+}
+
+.dataframe {
+    margin: auto;
+}
+
+.dataframe .df__table {
+    border-collapse: collapse;
+    border: 1px solid #FDBB30;
+    width: 80%;
+}
+
+.dataframe .df__table th {
+    background-color: #860038;
+    text-align: center;
+    padding: 10px;
+}
+
+.dataframe .df__table td {
+    text-align: center;
+}
+
+.footer__container {
+    display: flex;
+    margin-top: 50px;
+    border-top: 2px solid #860038;
+    justify-content: space-between;
+    justify-items: center;
+    margin-top: 40px;
+}
+
+.footer__text {
+    font-size: 14px;
+    padding: 20px;
+}
+
+.footer__link {
+    color: #FDBB30;
+    text-decoration: none;
+    padding: 20px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.footer__link:hover {
+    color: #860038;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+@media (max-width: 700px) {
+    .header {
+        padding: 10px 5%;
+    }
+    
+    .header__title {
+        font-size: 0.9em;
+        text-align: center;
+    }
+
+    .logo {
+        height: 50px;
+        width: 50px;
+    }
+
+    .cavs__reddit {
+        font-size: 0.75em;
+    }
+
+    .players {
+        width: 90%;
+    }
+
+    .selected__players__link {
+        font-size: 0.8em;
+        padding: 5px;
+    }
+
+    .players__link {
+        font-size: 0.7em;
+        padding: 5px;
+    }
+
+    .misc__header {
+        font-size: 1.1em;
+        margin-top: 40px;
+        margin-bottom: 0;
+    }
+
+    .cavs__home__header {
+        font-size: 1.25em;
+    }
+
+    .record__container {
+        margin-right: 20px;
+    }
+    
+    .points__container {
+        margin-left: 20px;
+    }
+
+    .home__table__headers th {
+        font-size: 0.8em;
+        padding: 5px;
+    }
+
+    .home__table__col th {
+        font-size: 0.8em;
+        padding: 5px;
+    }
+
+    .home__table__data td {
+        font-size: 0.8em;
+        padding: 5px;
+    }
+
+    .dataframe.results_df__table {
+        margin-top: 40px;
+        width: 90%;
+    }
+    
+    .dataframe.results_df__table th {
+        font-size: 0.75em;
+        padding: 5px;
+    }
+    
+    .dataframe.results_df__table td {
+        font-size: 0.75em;
+        padding: 5px;
+        text-align: center;
+    }
+
+    .num__tables__container {
+        margin-top: 30px;
+    }
+
+    .pcts__tables__container {
+        margin-top: 30px;
+    }
+
+    .table__headers th {
+        font-size: 0.7em;
+    }
+
+    .table__col th {
+        font-size: 0.7em;
+        margin: 0;
+        padding: 5px;
+    }
+
+    .table__data td {
+        font-size: 0.7em;
+        margin: 0;
+        padding: 5px;
+    }
+
+    .table__season__pcts {
+        margin-bottom: 0;
+    }
+
+    .table__header {
+        display: none;
+    }
+
+    .dataframe .df__table th {
+        display: none;
+    }
+
+    .dataframe .df__table td {
+        display: none;
+    }
+
+}

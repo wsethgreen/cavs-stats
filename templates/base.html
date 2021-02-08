@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2020 Cavs</title>
+    <link rel="stylesheet" type='text/css' href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body class='container'>
+
+    <header class="header">
+        <a href="/"><img class="logo" src="/static/images/cavs_black_logo.png" alt="cavs logo"></a>
+        <h1 class='header__title'>2020 Cleveland Cavaliers Statistics</h1>
+        <a class='cavs__reddit' href="http://www.reddit.com/r/clevelandcavs/">r/clevelandcavs</a>
+    </header>
+
+    <div>
+        <h3 class='misc__header'>Select a Player</h3>
+    </div>
+    
+
+    <div>
+        {% block players %}
+        {% endblock %}
+    </div>
+
+    <div>
+        {% block tables %}
+        {% endblock %}
+    </div>
+
+    <footer class='footer__container'>
+        <a href="/" class='footer__link'>Home</a>
+        <p class='footer__text'>cavs-stats is a personal project of Seth Green</p>
+        <a href="mailto:wsethgreen@gmail.com" class='footer__link'>Email</a>
+    </footer>
+
+</body>
+</html>

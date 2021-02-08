@@ -1,0 +1,335 @@
+{% extends 'base.html' %}
+
+{% block players %}
+
+<div class="players__container">
+
+    <div class = "players">
+
+    {% for key in cavs_stats %}
+    {% if key == cavs_key %}
+        <a class='selected__players__link' href='/table/{{ key }}'>{{ key }}</a>
+    {% else %}
+        <a class='players__link' href='/table/{{ key }}'>{{ key }}</a>
+    {% endif %}
+    {% endfor %}
+
+    </div>
+
+</div>
+
+{% endblock %}
+
+{% block tables %}
+
+<div>
+    <h3 class='misc__header'>{{ cavs_key }} Season Averages</h3>
+</div>
+
+<div class='tables__container'>
+
+    <div class='num__tables__container'>
+    
+        <table class='table__season__nums'>
+    
+            <tr class='table__headers'>
+                <th colspan='8'>Season</th>
+            </tr>
+    
+            <tr class='table__col'>
+                <th class='table__left__col'>GP</th>
+                <th>MIN</th>
+                <th>PTS</th>
+                <th>REB</th>
+                <th>AST</th>
+                <th>STL</th>
+                <th>BLK</th>
+                <th class='table__right__col'>TOs</th>
+            </tr>
+    
+            <tr class='table__data'>
+                <td>{{ cavs_stats[cavs_key]['stats']['games'] }}</td>
+                <td>{{ cavs_stats[cavs_key]['stats']['averages']['min'] }}</td>
+                <td>{{ cavs_stats[cavs_key]['stats']['averages']['pts'] }}</td>
+                <td>{{ cavs_stats[cavs_key]['stats']['averages']['reb'] }}</td>
+                <td>{{ cavs_stats[cavs_key]['stats']['averages']['ast'] }}</td>
+                <td>{{ cavs_stats[cavs_key]['stats']['averages']['stl'] }}</td>
+                <td>{{ cavs_stats[cavs_key]['stats']['averages']['blk'] }}</td>
+                <td>{{ cavs_stats[cavs_key]['stats']['averages']['turnover'] }}</td>
+            </tr>
+    
+        </table>
+    
+    </div>
+    
+    <div class='pcts__tables__container'>
+
+        <table class='table__season__pcts'>
+
+            <tr class='table__headers'>
+                <th colspan='9'>Season</th>
+            </tr>
+
+            <tr class='table__col'>
+                <th class='table__left__col'>FGM</th>
+                <th>FGA</th>
+                <th>FG%</th>
+                <th>FTM</th>
+                <th>FTA</th>
+                <th>FT%</th>
+                <th>FG3M</th>
+                <th>FG3A</th>
+                <th>FG3%</th>
+            </tr>
+
+            <tr class='table__data'>
+                <td>{{ cavs_stats[cavs_key]['stats']['averages']['fgm'] }}</td>
+                <td>{{ cavs_stats[cavs_key]['stats']['averages']['fga'] }}</td>
+                <td id='pct__data'>{{ cavs_stats[cavs_key]['stats']['averages']['fg_pct'] }}%</td>
+                <td>{{ cavs_stats[cavs_key]['stats']['averages']['ftm'] }}</td>
+                <td>{{ cavs_stats[cavs_key]['stats']['averages']['fta'] }}</td>
+                <td id='pct__data'>{{ cavs_stats[cavs_key]['stats']['averages']['ft_pct'] }}%</td>
+                <td>{{ cavs_stats[cavs_key]['stats']['averages']['fg3m'] }}</td>
+                <td>{{ cavs_stats[cavs_key]['stats']['averages']['fg3a'] }}</td>
+                <td id='pct__data'>{{ cavs_stats[cavs_key]['stats']['averages']['fg3_pct'] }}%</td>
+            </tr>
+
+        </table>
+
+    </div>
+
+</div>
+
+
+<div class='dataframe'>
+
+    <h3 class='table__header'>{{ cavs_key }} Previous 10 Games</h3>
+    {{ html_df_10 | safe }}
+
+</div>
+
+<div>
+    <h3 class='misc__header'>{{ cavs_key }} Prior 5 Game Averages</h3>
+</div>
+
+<div class='tables__container'>
+
+    <div class='num__tables__container'>
+
+        <table class='table__season__nums'>
+    
+            <tr class='table__headers'>
+                <th colspan='7'>Last 5 Games</th>
+            </tr>
+    
+            <tr class='table__col'>
+                <th class='table__left__col'>MIN</th>
+                <th>PTS</th>
+                <th>REB</th>
+                <th>AST</th>
+                <th>STL</th>
+                <th>BLK</th>
+                <th class='table__right__col'>TOs</th>
+            </tr>
+    
+            <tr class='table__data'>
+                <td>{{ cavs_stats[cavs_key]['stats']['past 5']['min'] }}</td>
+                <td>{{ cavs_stats[cavs_key]['stats']['past 5']['pts'] }}</td>
+                <td>{{ cavs_stats[cavs_key]['stats']['past 5']['reb'] }}</td>
+                <td>{{ cavs_stats[cavs_key]['stats']['past 5']['ast'] }}</td>
+                <td>{{ cavs_stats[cavs_key]['stats']['past 5']['stl'] }}</td>
+                <td>{{ cavs_stats[cavs_key]['stats']['past 5']['blk'] }}</td>
+                <td>{{ cavs_stats[cavs_key]['stats']['past 5']['turnover'] }}</td>
+            </tr>
+    
+        </table>
+
+    </div>
+
+    <div class='pcts__tables__container'>
+
+        <table class='table__season__pcts'>
+
+            <tr class='table__headers'>
+                <th colspan='9'>Last 5 Games</th>
+            </tr>
+
+            <tr class='table__col'>
+                <th class='table__left__col'>FGM</th>
+                <th>FGA</th>
+                <th>FG%</th>
+                <th>FTM</th>
+                <th>FTA</th>
+                <th>FT%</th>
+                <th>FG3M</th>
+                <th>FG3A</th>
+                <th>FG3%</th>
+            </tr>
+
+            <tr class='table__data'>
+                <td>{{ cavs_stats[cavs_key]['stats']['past 5']['fgm'] }}</td>
+                <td>{{ cavs_stats[cavs_key]['stats']['past 5']['fga'] }}</td>
+                <td id='pct__data'>{{ cavs_stats[cavs_key]['stats']['past 5']['fg_pct'] }}%</td>
+                <td>{{ cavs_stats[cavs_key]['stats']['past 5']['ftm'] }}</td>
+                <td>{{ cavs_stats[cavs_key]['stats']['past 5']['fta'] }}</td>
+                <td id='pct__data'>{{ cavs_stats[cavs_key]['stats']['past 5']['ft_pct'] }}%</td>
+                <td>{{ cavs_stats[cavs_key]['stats']['past 5']['fg3m'] }}</td>
+                <td>{{ cavs_stats[cavs_key]['stats']['past 5']['fg3a'] }}</td>
+                <td id='pct__data'>{{ cavs_stats[cavs_key]['stats']['past 5']['fg3_pct'] }}%</td>
+            </tr>
+
+        </table>
+
+    </div>
+
+</div>
+
+<div class='dataframe'>
+
+    <h3 class='table__header'>{{ cavs_key }} Previous 5 Games</h3>
+    {{ html_df_5 | safe }}
+
+</div>
+
+<div>
+    <h3 class='misc__header'>{{ cavs_key }} Season Highs/Lows</h3>
+</div>
+
+<div class='tables__container'>
+
+    <div class='num__tables__container'>
+
+        <table class='table__season__nums'>
+    
+            <tr class='table__headers'>
+                <th colspan='7'>Season Highs</th>
+            </tr>
+    
+            <tr class='table__col'>
+                <th class='table__left__col'>MIN</th>
+                <th>PTS</th>
+                <th>REB</th>
+                <th>AST</th>
+                <th>STL</th>
+                <th>BLK</th>
+                <th class='table__right__col'>TOs</th>
+            </tr>
+    
+            <tr class='table__data'>
+                <td>{{ cavs_stats[cavs_key]['stats']['highs']['min'] }}</td>
+                <td>{{ cavs_stats[cavs_key]['stats']['highs']['pts'] }}</td>
+                <td>{{ cavs_stats[cavs_key]['stats']['highs']['reb'] }}</td>
+                <td>{{ cavs_stats[cavs_key]['stats']['highs']['ast'] }}</td>
+                <td>{{ cavs_stats[cavs_key]['stats']['highs']['stl'] }}</td>
+                <td>{{ cavs_stats[cavs_key]['stats']['highs']['blk'] }}</td>
+                <td>{{ cavs_stats[cavs_key]['stats']['lows']['turnover'] }}</td>
+            </tr>
+    
+        </table>
+
+    </div>
+    
+    <div class='pcts__tables__container'>
+
+        <table class='table__season__pcts'>
+            <tr class='table__headers'>
+                <th colspan='9'>Season Highs</th>
+            </tr>
+            <tr class='table__col'>
+                <th class='table__left__col'>FGM</th>
+                <th>FGA</th>
+                <th>FG%</th>
+                <th>FTM</th>
+                <th>FTA</th>
+                <th>FT%</th>
+                <th>FG3M</th>
+                <th>FG3A</th>
+                <th>FG3%</th>
+            </tr>
+            <tr class='table__data'>
+                <td>{{ cavs_stats[cavs_key]['stats']['highs']['fgm'] }}</td>
+                <td>{{ cavs_stats[cavs_key]['stats']['highs']['fga'] }}</td>
+                <td id='pct__data'>{{ cavs_stats[cavs_key]['stats']['highs']['fg_pct'] }}%</td>
+                <td>{{ cavs_stats[cavs_key]['stats']['highs']['ftm'] }}</td>
+                <td>{{ cavs_stats[cavs_key]['stats']['highs']['fta'] }}</td>
+                <td id='pct__data'>{{ cavs_stats[cavs_key]['stats']['highs']['ft_pct'] }}%</td>
+                <td>{{ cavs_stats[cavs_key]['stats']['highs']['fg3m'] }}</td>
+                <td>{{ cavs_stats[cavs_key]['stats']['highs']['fg3a'] }}</td>
+                <td id='pct__data'>{{ cavs_stats[cavs_key]['stats']['highs']['fg3_pct'] }}%</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div class='tables__container'>
+
+    <div class='pcts__tables__container'>
+
+        <table class='table__season__nums'>
+    
+            <tr class='table__headers'>
+                <th colspan='7'>Season Lows</th>
+            </tr>
+    
+            <tr class='table__col'>
+                <th class='table__left__col'>MIN</th>
+                <th>PTS</th>
+                <th>REB</th>
+                <th>AST</th>
+                <th>STL</th>
+                <th>BLK</th>
+                <th class='table__right__col'>TOs</th>
+            </tr>
+    
+            <tr class='table__data'>
+                <td>{{ cavs_stats[cavs_key]['stats']['lows']['min'] }}</td>
+                <td>{{ cavs_stats[cavs_key]['stats']['lows']['pts'] }}</td>
+                <td>{{ cavs_stats[cavs_key]['stats']['lows']['reb'] }}</td>
+                <td>{{ cavs_stats[cavs_key]['stats']['lows']['ast'] }}</td>
+                <td>{{ cavs_stats[cavs_key]['stats']['lows']['stl'] }}</td>
+                <td>{{ cavs_stats[cavs_key]['stats']['lows']['blk'] }}</td>
+                <td>{{ cavs_stats[cavs_key]['stats']['highs']['turnover'] }}</td>
+            </tr>
+    
+        </table>
+
+    </div>
+    
+    <div class='pcts__tables__container'>
+        <table class='table__season__pcts'>
+
+            <tr class='table__headers'>
+                <th colspan='9'>Season Lows</th>
+            </tr>
+
+            <tr class='table__col'>
+                <th class='table__left__col'>FGM</th>
+                <th>FGA</th>
+                <th>FG%</th>
+                <th>FTM</th>
+                <th>FTA</th>
+                <th>FT%</th>
+                <th>FG3M</th>
+                <th>FG3A</th>
+                <th>FG3%</th>
+            </tr>
+
+            <tr class='table__data'>
+                <td>{{ cavs_stats[cavs_key]['stats']['lows']['fgm'] }}</td>
+                <td>{{ cavs_stats[cavs_key]['stats']['lows']['fga'] }}</td>
+                <td id='pct__data'>{{ cavs_stats[cavs_key]['stats']['lows']['fg_pct'] }}%</td>
+                <td>{{ cavs_stats[cavs_key]['stats']['lows']['ftm'] }}</td>
+                <td>{{ cavs_stats[cavs_key]['stats']['lows']['fta'] }}</td>
+                <td id='pct__data'>{{ cavs_stats[cavs_key]['stats']['lows']['ft_pct'] }}%</td>
+                <td>{{ cavs_stats[cavs_key]['stats']['lows']['fg3m'] }}</td>
+                <td>{{ cavs_stats[cavs_key]['stats']['lows']['fg3a'] }}</td>
+                <td id='pct__data'>{{ cavs_stats[cavs_key]['stats']['lows']['fg3_pct'] }}%</td>
+            </tr>
+        </table>
+    </div>
+
+</div>
+
+{% endblock %}
+
+</html>
