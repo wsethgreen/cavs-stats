@@ -215,22 +215,73 @@ def clean_df(df):
 for df in cavs_dfs:
     clean_df(df)
 
+# Create new DFs to be displayed on site. 
+# DFs will match up with stats tables for each player
+
+allen_nums_df = allen_df[['MIN', 'PTS', 'REB', 'AST', 'STL', 'BLK', 'TO']].copy()
+allen_pcts_df = allen_df[['FGM', 'FGA', 'FG%', 'FTM', 'FTA', 'FT%', 'FG3M', 'FG3A', 'FG3%']].copy()
+
+bolden_nums_df = bolden_df[['MIN', 'PTS', 'REB', 'AST', 'STL', 'BLK', 'TO']].copy()
+bolden_pcts_df = bolden_df[['FGM', 'FGA', 'FG%', 'FTM', 'FTA', 'FT%', 'FG3M', 'FG3A', 'FG3%']].copy()
+
+#delly_nums_df = delly_df[['MIN', 'PTS', 'REB', 'AST', 'STL', 'BLK', 'TO']].copy()
+#delly_pcts_df = delly_df[['FGM', 'FGA', 'FG%', 'FTM', 'FTA', 'FT%', 'FG3M', 'FG3A', 'FG3%']].copy()
+
+dotson_nums_df = dotson_df[['MIN', 'PTS', 'REB', 'AST', 'STL', 'BLK', 'TO']].copy()
+dotson_pcts_df = dotson_df[['FGM', 'FGA', 'FG%', 'FTM', 'FTA', 'FT%', 'FG3M', 'FG3A', 'FG3%']].copy()
+
+drummond_nums_df = drummond_df[['MIN', 'PTS', 'REB', 'AST', 'STL', 'BLK', 'TO']].copy()
+drummond_pcts_df = drummond_df[['FGM', 'FGA', 'FG%', 'FTM', 'FTA', 'FT%', 'FG3M', 'FG3A', 'FG3%']].copy()
+
+garland_nums_df = garland_df[['MIN', 'PTS', 'REB', 'AST', 'STL', 'BLK', 'TO']].copy()
+garland_pcts_df = garland_df[['FGM', 'FGA', 'FG%', 'FTM', 'FTA', 'FT%', 'FG3M', 'FG3A', 'FG3%']].copy()
+
+love_nums_df = love_df[['MIN', 'PTS', 'REB', 'AST', 'STL', 'BLK', 'TO']].copy()
+love_pcts_df = love_df[['FGM', 'FGA', 'FG%', 'FTM', 'FTA', 'FT%', 'FG3M', 'FG3A', 'FG3%']].copy()
+
+maker_nums_df = maker_df[['MIN', 'PTS', 'REB', 'AST', 'STL', 'BLK', 'TO']].copy()
+maker_pcts_df = maker_df[['FGM', 'FGA', 'FG%', 'FTM', 'FTA', 'FT%', 'FG3M', 'FG3A', 'FG3%']].copy()
+
+mcgee_nums_df = mcgee_df[['MIN', 'PTS', 'REB', 'AST', 'STL', 'BLK', 'TO']].copy()
+mcgee_pcts_df = mcgee_df[['FGM', 'FGA', 'FG%', 'FTM', 'FTA', 'FT%', 'FG3M', 'FG3A', 'FG3%']].copy()
+
+okoro_nums_df = okoro_df[['MIN', 'PTS', 'REB', 'AST', 'STL', 'BLK', 'TO']].copy()
+okoro_pcts_df = okoro_df[['FGM', 'FGA', 'FG%', 'FTM', 'FTA', 'FT%', 'FG3M', 'FG3A', 'FG3%']].copy()
+
+osman_nums_df = osman_df[['MIN', 'PTS', 'REB', 'AST', 'STL', 'BLK', 'TO']].copy()
+osman_pcts_df = osman_df[['FGM', 'FGA', 'FG%', 'FTM', 'FTA', 'FT%', 'FG3M', 'FG3A', 'FG3%']].copy()
+
+prince_nums_df = prince_df[['MIN', 'PTS', 'REB', 'AST', 'STL', 'BLK', 'TO']].copy()
+prince_pcts_df = prince_df[['FGM', 'FGA', 'FG%', 'FTM', 'FTA', 'FT%', 'FG3M', 'FG3A', 'FG3%']].copy()
+
+sexton_nums_df = sexton_df[['MIN', 'PTS', 'REB', 'AST', 'STL', 'BLK', 'TO']].copy()
+sexton_pcts_df = sexton_df[['FGM', 'FGA', 'FG%', 'FTM', 'FTA', 'FT%', 'FG3M', 'FG3A', 'FG3%']].copy()
+
+stevens_nums_df = stevens_df[['MIN', 'PTS', 'REB', 'AST', 'STL', 'BLK', 'TO']].copy()
+stevens_pcts_df = stevens_df[['FGM', 'FGA', 'FG%', 'FTM', 'FTA', 'FT%', 'FG3M', 'FG3A', 'FG3%']].copy()
+
+wade_nums_df = wade_df[['MIN', 'PTS', 'REB', 'AST', 'STL', 'BLK', 'TO']].copy()
+wade_pcts_df = wade_df[['FGM', 'FGA', 'FG%', 'FTM', 'FTA', 'FT%', 'FG3M', 'FG3A', 'FG3%']].copy()
+
+windler_nums_df = windler_df[['MIN', 'PTS', 'REB', 'AST', 'STL', 'BLK', 'TO']].copy()
+windler_pcts_df = windler_df[['FGM', 'FGA', 'FG%', 'FTM', 'FTA', 'FT%', 'FG3M', 'FG3A', 'FG3%']].copy()
+
 # Create final dictionary to house all relevant data to be displayed 
 
-cavs_stats = {'Jarrett Allen': {'df': allen_df, 'stats': allen_dict},
-            'Marques Bolden': {'df': bolden_df, 'stats': bolden_dict},
-            #'Matthew Delladova': {'df': delly_df, 'stats': delly_dict},
-            'Damyean Dotson': {'df': dotson_df, 'stats': dotson_dict},
-            'Andre Drummond': {'df': drummond_df, 'stats': drummond_dict},
-            'Darius Garland': {'df': garland_df, 'stats': garland_dict},
-            'Kevin Love': {'df': love_df, 'stats': love_dict},
-            'Thon Maker': {'df': maker_df, 'stats': maker_dict},
-            'Javale McGee': {'df': mcgee_df, 'stats': mcgee_dict},
-            'Isaac Okoro': {'df': okoro_df, 'stats': okoro_dict},
-            'Cedi Osman': {'df': osman_df, 'stats': osman_dict},
-            'Taurean Prince': {'df': prince_df, 'stats': prince_dict},
-            'Collin Sexton': {'df': sexton_df, 'stats': sexton_dict},
-            'Lamar Stevens': {'df': stevens_df, 'stats': stevens_dict},
-            'Dean Wade': {'df': wade_df, 'stats': wade_dict},
-            'Dylan Windler': {'df': windler_df, 'stats': windler_dict}
+cavs_stats = {'Jarrett Allen': {'nums_df': allen_nums_df, 'pcts_df': allen_pcts_df, 'stats': allen_dict},
+            'Marques Bolden': {'nums_df': bolden_nums_df, 'pcts_df': bolden_pcts_df, 'stats': bolden_dict},
+            #'Matthew Delladova': {'nums_df': delly_nums_df, 'pcts_df': delly_pcts_df, 'stats': delly_dict},
+            'Damyean Dotson': {'nums_df': dotson_nums_df, 'pcts_df': dotson_pcts_df, 'stats': dotson_dict},
+            'Andre Drummond': {'nums_df': drummond_nums_df, 'pcts_df': drummond_pcts_df, 'stats': drummond_dict},
+            'Darius Garland': {'nums_df': garland_nums_df, 'pcts_df': garland_pcts_df, 'stats': garland_dict},
+            'Kevin Love': {'nums_df': love_nums_df, 'pcts_df': love_pcts_df, 'stats': love_dict},
+            'Thon Maker': {'nums_df': maker_nums_df, 'pcts_df': maker_pcts_df, 'stats': maker_dict},
+            'Javale McGee': {'nums_df': mcgee_nums_df, 'pcts_df': mcgee_pcts_df, 'stats': mcgee_dict},
+            'Isaac Okoro': {'nums_df': okoro_nums_df, 'pcts_df': okoro_pcts_df, 'stats': okoro_dict},
+            'Cedi Osman': {'nums_df': osman_nums_df, 'pcts_df': osman_pcts_df, 'stats': osman_dict},
+            'Taurean Prince': {'nums_df': prince_nums_df, 'pcts_df': prince_pcts_df, 'stats': prince_dict},
+            'Collin Sexton': {'nums_df': sexton_nums_df, 'pcts_df': sexton_pcts_df, 'stats': sexton_dict},
+            'Lamar Stevens': {'nums_df': stevens_nums_df, 'pcts_df': stevens_pcts_df, 'stats': stevens_dict},
+            'Dean Wade': {'nums_df': wade_nums_df, 'pcts_df': wade_pcts_df, 'stats': wade_dict},
+            'Dylan Windler': {'nums_df': windler_nums_df, 'pcts_df': windler_pcts_df, 'stats': windler_dict}
         }

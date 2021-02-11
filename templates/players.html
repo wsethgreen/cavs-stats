@@ -2,15 +2,17 @@
 
 {% block players %}
 
+<!--Create a link for each player. 
+The link will direct the user to the player's stats page-->
 <div class="players__container">
 
     <div class = "players">
 
     {% for key in cavs_stats %}
     {% if key == cavs_key %}
-        <a class='selected__players__link' href='/table/{{ key }}'>{{ key }}</a>
+        <a class='selected__players__link' href='/players/{{ key }}'>{{ key }}</a>
     {% else %}
-        <a class='players__link' href='/table/{{ key }}'>{{ key }}</a>
+        <a class='players__link' href='/players/{{ key }}'>{{ key }}</a>
     {% endif %}
     {% endfor %}
 
@@ -104,7 +106,8 @@
 <div class='dataframe'>
 
     <h3 class='table__header'>{{ cavs_key }} Previous 10 Games</h3>
-    {{ html_df_10 | safe }}
+    {{ html_nums_df_10 | safe }}
+    {{ html_pcts_df_10 | safe }}
 
 </div>
 
@@ -187,12 +190,13 @@
 <div class='dataframe'>
 
     <h3 class='table__header'>{{ cavs_key }} Previous 5 Games</h3>
-    {{ html_df_5 | safe }}
+    {{ html_nums_df_5 | safe }}
+    {{ html_pcts_df_5 | safe }}
 
 </div>
 
 <div>
-    <h3 class='misc__header'>{{ cavs_key }} Season Highs/Lows</h3>
+    <h3 class='misc__header'>{{ cavs_key }} Season Highs</h3>
 </div>
 
 <div class='tables__container'>
@@ -259,6 +263,10 @@
             </tr>
         </table>
     </div>
+</div>
+
+<div>
+    <h3 class='misc__header'>{{ cavs_key }} Season Lows</h3>
 </div>
 
 <div class='tables__container'>

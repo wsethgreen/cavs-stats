@@ -12,19 +12,30 @@ def index():
     return render_template('index.html', cavs_stats=cavs_stats, html_results_df=html_results_df,
                            cavs_record=cavs_record, cavs_ppg=cavs_ppg, opp_ppg=opp_ppg)
 
-@app.route('/table/<key>', methods = ["POST", "GET"])
+@app.route('/players/<key>', methods = ["POST", "GET"])
 def table(key):
     
-    reverse_df_10 = cavs_stats[key]['df'].iloc[::-1]
-    df_10 = reverse_df_10.head(10)
-    html_df_10 = df_10.to_html(classes='df__table', header="true", index=False)
+    #Create DFs for number and percent stats for the past 10 games for the selected player. 
+    reverse_nums_df_10 = cavs_stats[key]['nums_df'].iloc[::-1]
+    nums_df_10 = reverse_nums_df_10.head(10)
+    html_nums_df_10 = nums_df_10.to_html(classes='df__table', header="true", index=False)
     
-    reverse_df_5 = cavs_stats[key]['df'].iloc[::-1]
-    df_last_5 = reverse_df_5.head(5)
-    html_df_5 = df_last_5.to_html(classes='df__table', header="true", index=False)
+    reverse_pcts_df_10 = cavs_stats[key]['pcts_df'].iloc[::-1]
+    pcts_df_10 = reverse_pcts_df_10.head(10)
+    html_pcts_df_10 = pcts_df_10.to_html(classes='df__table', header="true", index=False)
     
-    return render_template('table.html', cavs_key=key, cavs_stats=cavs_stats,
-                           html_df_10=html_df_10, html_df_5=html_df_5)
+    #Create DFs for number and percent stats for the past 5 games for the selected player. 
+    reverse_nums_df_5 = cavs_stats[key]['nums_df'].iloc[::-1]
+    nums_df_last_5 = reverse_nums_df_5.head(5)
+    html_nums_df_5 = nums_df_last_5.to_html(classes='df__table', header="true", index=False)
+    
+    reverse_pcts_df_5 = cavs_stats[key]['pcts_df'].iloc[::-1]
+    pcts_df_last_5 = reverse_pcts_df_5.head(5)
+    html_pcts_df_5 = pcts_df_last_5.to_html(classes='df__table', header="true", index=False)
+    
+    return render_template('players.html', cavs_key=key, cavs_stats=cavs_stats,
+                           html_nums_df_10=html_nums_df_10, html_pcts_df_10=html_pcts_df_10, 
+                           html_nums_df_5=html_nums_df_5, html_pcts_df_5=html_pcts_df_5)
 
 if __name__ == '__main__':
     app.run()

@@ -249,7 +249,8 @@
 .dataframe .df__table {
     border-collapse: collapse;
     border: 1px solid #FDBB30;
-    width: 80%;
+    width: 50%;
+    margin-top: 40px;
 }
 
 .dataframe .df__table th {
@@ -401,15 +402,20 @@
     }
 
     .table__header {
-        display: none;
+        margin-top: 40px;
+        font-size: 1em;
     }
 
     .dataframe .df__table th {
-        display: none;
+        width: 80%;
+        font-size: 0.75em;
+        padding: 5px;
     }
 
     .dataframe .df__table td {
-        display: none;
+        width: 80%;
+        font-size: 0.75em;
+        padding: 5px;
     }
 
 }
