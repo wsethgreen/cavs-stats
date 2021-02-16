@@ -317,11 +317,15 @@
     .selected__players__link {
         font-size: 0.8em;
         padding: 5px;
+        margin-top: auto;
+        margin-bottom: auto;
     }
 
     .players__link {
         font-size: 0.7em;
         padding: 5px;
+        margin-top: auto;
+        margin-bottom: auto;
     }
 
     .misc__header {

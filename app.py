@@ -2,16 +2,20 @@ from flask import Flask, render_template, redirect, url_for, request
 from player_data_calcs import cavs_stats
 from cavs_data_calcs import results_df, cavs_ppg, opp_ppg, cavs_record
 
+# Create App
 app = Flask(__name__)
 
+# Create the route of the home page for the app
 @app.route('/', methods = ["POST", "GET"])
 def index():
-    
+    # Create a variable which transforms the Cavs' team results 
+    # from a dataframe to html
     html_results_df = results_df.to_html(classes='results_df__table', header="true", index=False)
     
     return render_template('index.html', cavs_stats=cavs_stats, html_results_df=html_results_df,
                            cavs_record=cavs_record, cavs_ppg=cavs_ppg, opp_ppg=opp_ppg)
 
+# Create the route of the 'players' page for the app
 @app.route('/players/<key>', methods = ["POST", "GET"])
 def table(key):
     

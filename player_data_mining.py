@@ -26,7 +26,7 @@ def extract_data(json_data):
 
 # API to pull player stats
 
-base_url = 'https://www.balldontlie.io/api/v1/stats?seasons[]=2020&player_ids[]='
+base_url = 'https://www.balldontlie.io/api/v1/stats?seasons[]=2020&per_page[]=100&player_ids[]='
 
 # Cavs players IDs
 
@@ -49,6 +49,10 @@ cavs_dict = {9: {'name': 'Jarrett Allen', 'stats':{}},
         }
 
 # Pull Cavs stats using the base API and player IDs. Store data in a list.
+
+# Uncomment below to see the status of the API call
+#players_status_test = [requests.get(base_url + str(player_id)) for player_id in cavs_dict]
+#print(players_status_test[0].status_code)
 
 players = [requests.get(base_url + str(player_id)).json() for player_id in cavs_dict]
 
