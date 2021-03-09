@@ -27,7 +27,7 @@ def extract_data(json_data):
 
 # API to pull game stats
 
-team_data_url = 'https://www.balldontlie.io/api/v1/games?seasons[]=2020&team_ids[]=6&per_page[]=100'
+team_data_url = 'https://www.balldontlie.io/api/v1/games?seasons[]=2020&team_ids[]=6&per_page=100'
 
 # Uncomment below to see the status of the API call
 #status_test = requests.get(team_data_url)

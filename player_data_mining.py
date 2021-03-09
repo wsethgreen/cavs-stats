@@ -26,7 +26,7 @@ def extract_data(json_data):
 
 # API to pull player stats
 
-base_url = 'https://www.balldontlie.io/api/v1/stats?seasons[]=2020&per_page[]=100&player_ids[]='
+base_url = 'https://www.balldontlie.io/api/v1/stats?seasons[]=2020&per_page100&player_ids[]='
 
 # Cavs players IDs
 
