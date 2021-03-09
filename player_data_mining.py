@@ -1,6 +1,7 @@
 import requests
 import json
 from datetime import datetime, time, timedelta
+from team_data_mining import date_to_time_delta
 
 def time_to_time_delta(time_str):
     t = datetime.strptime(time_str, '%M:%S') if time_str != '' else  datetime.strptime('00:00', '%M:%S')
@@ -19,14 +20,22 @@ def extract_data(json_data):
             value = record.get(key, 0)
             output[key].append(value)
             
-    # handle special case to convert minutes:
+    # Get the date of each game
+    output['date'] = []
+
+    for record in json_data['data']:
+        date = record['game']['date']
+        output['date'].append(date)
+            
+    # handle special case to convert minutes and dates:
     output['min'] = list(map(time_to_time_delta, output['min']))
+    output['date'] = list(map(date_to_time_delta, output['date']))
     
     return output
 
 # API to pull player stats
 
-base_url = 'https://www.balldontlie.io/api/v1/stats?seasons[]=2020&per_page100&player_ids[]='
+base_url = 'https://www.balldontlie.io/api/v1/stats?seasons[]=2020&per_page=100&player_ids[]='
 
 # Cavs players IDs
 
@@ -76,3 +85,4 @@ cavs_dict[413]['stats'] = player_stats[11]
 cavs_dict[3547279]['stats'] = player_stats[12]
 cavs_dict[666940]['stats'] = player_stats[13]
 cavs_dict[666971]['stats'] = player_stats[14]
+

@@ -43,7 +43,7 @@ def stats_dict():
     
     player_dict = {}
     
-    categories = ['min', 'pts', 'fgm', 'fga', 'fg_pct', 'ftm', 'fta', 'ft_pct', 
+    categories = ['date', 'min', 'pts', 'fgm', 'fga', 'fg_pct', 'ftm', 'fta', 'ft_pct', 
             'fg3m', 'fg3a', 'fg3_pct', 'ast', 'reb', 'stl', 'blk', 'turnover']
     
     averages = {}
@@ -205,7 +205,7 @@ def clean_df(df):
     
     # Update the name of each column so it's cleaner when displayed
     
-    df = df.rename(columns={'min': 'MIN', 'pts': 'PTS', 'fgm': 'FGM', 'fga': 'FGA',
+    df = df.rename(columns={'date': 'DATE', 'min': 'MIN', 'pts': 'PTS', 'fgm': 'FGM', 'fga': 'FGA',
                             'fg_pct': 'FG%', 'ftm': 'FTM', 'fta': 'FTA', 
                             'ft_pct': 'FT%', 'fg3m': 'FG3M', 'fg3a': 'FG3A',
                             'fg3_pct': 'FG3%', 'ast': 'AST', 'reb': 'REB',
@@ -218,53 +218,53 @@ for df in cavs_dfs:
 # Create new DFs to be displayed on site. 
 # DFs will match up with stats tables for each player
 
-allen_nums_df = allen_df[['MIN', 'PTS', 'REB', 'AST', 'STL', 'BLK', 'TO']].copy()
-allen_pcts_df = allen_df[['FGM', 'FGA', 'FG%', 'FTM', 'FTA', 'FT%', 'FG3M', 'FG3A', 'FG3%']].copy()
+allen_nums_df = allen_df[['DATE', 'MIN', 'PTS', 'REB', 'AST', 'STL', 'BLK', 'TO']].copy()
+allen_pcts_df = allen_df[['DATE', 'FGM', 'FGA', 'FG%', 'FTM', 'FTA', 'FT%', 'FG3M', 'FG3A', 'FG3%']].copy()
 
-bolden_nums_df = bolden_df[['MIN', 'PTS', 'REB', 'AST', 'STL', 'BLK', 'TO']].copy()
-bolden_pcts_df = bolden_df[['FGM', 'FGA', 'FG%', 'FTM', 'FTA', 'FT%', 'FG3M', 'FG3A', 'FG3%']].copy()
+bolden_nums_df = bolden_df[['DATE', 'MIN', 'PTS', 'REB', 'AST', 'STL', 'BLK', 'TO']].copy()
+bolden_pcts_df = bolden_df[['DATE', 'FGM', 'FGA', 'FG%', 'FTM', 'FTA', 'FT%', 'FG3M', 'FG3A', 'FG3%']].copy()
 
-#delly_nums_df = delly_df[['MIN', 'PTS', 'REB', 'AST', 'STL', 'BLK', 'TO']].copy()
-#delly_pcts_df = delly_df[['FGM', 'FGA', 'FG%', 'FTM', 'FTA', 'FT%', 'FG3M', 'FG3A', 'FG3%']].copy()
+#delly_nums_df = delly_df[['DATE', 'MIN', 'PTS', 'REB', 'AST', 'STL', 'BLK', 'TO']].copy()
+#delly_pcts_df = delly_df[['DATE', 'FGM', 'FGA', 'FG%', 'FTM', 'FTA', 'FT%', 'FG3M', 'FG3A', 'FG3%']].copy()
 
-dotson_nums_df = dotson_df[['MIN', 'PTS', 'REB', 'AST', 'STL', 'BLK', 'TO']].copy()
-dotson_pcts_df = dotson_df[['FGM', 'FGA', 'FG%', 'FTM', 'FTA', 'FT%', 'FG3M', 'FG3A', 'FG3%']].copy()
+dotson_nums_df = dotson_df[['DATE', 'MIN', 'PTS', 'REB', 'AST', 'STL', 'BLK', 'TO']].copy()
+dotson_pcts_df = dotson_df[['DATE', 'FGM', 'FGA', 'FG%', 'FTM', 'FTA', 'FT%', 'FG3M', 'FG3A', 'FG3%']].copy()
 
-drummond_nums_df = drummond_df[['MIN', 'PTS', 'REB', 'AST', 'STL', 'BLK', 'TO']].copy()
-drummond_pcts_df = drummond_df[['FGM', 'FGA', 'FG%', 'FTM', 'FTA', 'FT%', 'FG3M', 'FG3A', 'FG3%']].copy()
+drummond_nums_df = drummond_df[['DATE', 'MIN', 'PTS', 'REB', 'AST', 'STL', 'BLK', 'TO']].copy()
+drummond_pcts_df = drummond_df[['DATE', 'FGM', 'FGA', 'FG%', 'FTM', 'FTA', 'FT%', 'FG3M', 'FG3A', 'FG3%']].copy()
 
-garland_nums_df = garland_df[['MIN', 'PTS', 'REB', 'AST', 'STL', 'BLK', 'TO']].copy()
-garland_pcts_df = garland_df[['FGM', 'FGA', 'FG%', 'FTM', 'FTA', 'FT%', 'FG3M', 'FG3A', 'FG3%']].copy()
+garland_nums_df = garland_df[['DATE', 'MIN', 'PTS', 'REB', 'AST', 'STL', 'BLK', 'TO']].copy()
+garland_pcts_df = garland_df[['DATE', 'FGM', 'FGA', 'FG%', 'FTM', 'FTA', 'FT%', 'FG3M', 'FG3A', 'FG3%']].copy()
 
-love_nums_df = love_df[['MIN', 'PTS', 'REB', 'AST', 'STL', 'BLK', 'TO']].copy()
-love_pcts_df = love_df[['FGM', 'FGA', 'FG%', 'FTM', 'FTA', 'FT%', 'FG3M', 'FG3A', 'FG3%']].copy()
+love_nums_df = love_df[['DATE', 'MIN', 'PTS', 'REB', 'AST', 'STL', 'BLK', 'TO']].copy()
+love_pcts_df = love_df[['DATE', 'FGM', 'FGA', 'FG%', 'FTM', 'FTA', 'FT%', 'FG3M', 'FG3A', 'FG3%']].copy()
 
-maker_nums_df = maker_df[['MIN', 'PTS', 'REB', 'AST', 'STL', 'BLK', 'TO']].copy()
-maker_pcts_df = maker_df[['FGM', 'FGA', 'FG%', 'FTM', 'FTA', 'FT%', 'FG3M', 'FG3A', 'FG3%']].copy()
+maker_nums_df = maker_df[['DATE', 'MIN', 'PTS', 'REB', 'AST', 'STL', 'BLK', 'TO']].copy()
+maker_pcts_df = maker_df[['DATE', 'FGM', 'FGA', 'FG%', 'FTM', 'FTA', 'FT%', 'FG3M', 'FG3A', 'FG3%']].copy()
 
-mcgee_nums_df = mcgee_df[['MIN', 'PTS', 'REB', 'AST', 'STL', 'BLK', 'TO']].copy()
-mcgee_pcts_df = mcgee_df[['FGM', 'FGA', 'FG%', 'FTM', 'FTA', 'FT%', 'FG3M', 'FG3A', 'FG3%']].copy()
+mcgee_nums_df = mcgee_df[['DATE', 'MIN', 'PTS', 'REB', 'AST', 'STL', 'BLK', 'TO']].copy()
+mcgee_pcts_df = mcgee_df[['DATE', 'FGM', 'FGA', 'FG%', 'FTM', 'FTA', 'FT%', 'FG3M', 'FG3A', 'FG3%']].copy()
 
-okoro_nums_df = okoro_df[['MIN', 'PTS', 'REB', 'AST', 'STL', 'BLK', 'TO']].copy()
-okoro_pcts_df = okoro_df[['FGM', 'FGA', 'FG%', 'FTM', 'FTA', 'FT%', 'FG3M', 'FG3A', 'FG3%']].copy()
+okoro_nums_df = okoro_df[['DATE', 'MIN', 'PTS', 'REB', 'AST', 'STL', 'BLK', 'TO']].copy()
+okoro_pcts_df = okoro_df[['DATE', 'FGM', 'FGA', 'FG%', 'FTM', 'FTA', 'FT%', 'FG3M', 'FG3A', 'FG3%']].copy()
 
-osman_nums_df = osman_df[['MIN', 'PTS', 'REB', 'AST', 'STL', 'BLK', 'TO']].copy()
-osman_pcts_df = osman_df[['FGM', 'FGA', 'FG%', 'FTM', 'FTA', 'FT%', 'FG3M', 'FG3A', 'FG3%']].copy()
+osman_nums_df = osman_df[['DATE', 'MIN', 'PTS', 'REB', 'AST', 'STL', 'BLK', 'TO']].copy()
+osman_pcts_df = osman_df[['DATE', 'FGM', 'FGA', 'FG%', 'FTM', 'FTA', 'FT%', 'FG3M', 'FG3A', 'FG3%']].copy()
 
-prince_nums_df = prince_df[['MIN', 'PTS', 'REB', 'AST', 'STL', 'BLK', 'TO']].copy()
-prince_pcts_df = prince_df[['FGM', 'FGA', 'FG%', 'FTM', 'FTA', 'FT%', 'FG3M', 'FG3A', 'FG3%']].copy()
+prince_nums_df = prince_df[['DATE', 'MIN', 'PTS', 'REB', 'AST', 'STL', 'BLK', 'TO']].copy()
+prince_pcts_df = prince_df[['DATE', 'FGM', 'FGA', 'FG%', 'FTM', 'FTA', 'FT%', 'FG3M', 'FG3A', 'FG3%']].copy()
 
-sexton_nums_df = sexton_df[['MIN', 'PTS', 'REB', 'AST', 'STL', 'BLK', 'TO']].copy()
-sexton_pcts_df = sexton_df[['FGM', 'FGA', 'FG%', 'FTM', 'FTA', 'FT%', 'FG3M', 'FG3A', 'FG3%']].copy()
+sexton_nums_df = sexton_df[['DATE', 'MIN', 'PTS', 'REB', 'AST', 'STL', 'BLK', 'TO']].copy()
+sexton_pcts_df = sexton_df[['DATE', 'FGM', 'FGA', 'FG%', 'FTM', 'FTA', 'FT%', 'FG3M', 'FG3A', 'FG3%']].copy()
 
-stevens_nums_df = stevens_df[['MIN', 'PTS', 'REB', 'AST', 'STL', 'BLK', 'TO']].copy()
-stevens_pcts_df = stevens_df[['FGM', 'FGA', 'FG%', 'FTM', 'FTA', 'FT%', 'FG3M', 'FG3A', 'FG3%']].copy()
+stevens_nums_df = stevens_df[['DATE', 'MIN', 'PTS', 'REB', 'AST', 'STL', 'BLK', 'TO']].copy()
+stevens_pcts_df = stevens_df[['DATE', 'FGM', 'FGA', 'FG%', 'FTM', 'FTA', 'FT%', 'FG3M', 'FG3A', 'FG3%']].copy()
 
-wade_nums_df = wade_df[['MIN', 'PTS', 'REB', 'AST', 'STL', 'BLK', 'TO']].copy()
-wade_pcts_df = wade_df[['FGM', 'FGA', 'FG%', 'FTM', 'FTA', 'FT%', 'FG3M', 'FG3A', 'FG3%']].copy()
+wade_nums_df = wade_df[['DATE', 'MIN', 'PTS', 'REB', 'AST', 'STL', 'BLK', 'TO']].copy()
+wade_pcts_df = wade_df[['DATE', 'FGM', 'FGA', 'FG%', 'FTM', 'FTA', 'FT%', 'FG3M', 'FG3A', 'FG3%']].copy()
 
-windler_nums_df = windler_df[['MIN', 'PTS', 'REB', 'AST', 'STL', 'BLK', 'TO']].copy()
-windler_pcts_df = windler_df[['FGM', 'FGA', 'FG%', 'FTM', 'FTA', 'FT%', 'FG3M', 'FG3A', 'FG3%']].copy()
+windler_nums_df = windler_df[['DATE', 'MIN', 'PTS', 'REB', 'AST', 'STL', 'BLK', 'TO']].copy()
+windler_pcts_df = windler_df[['DATE', 'FGM', 'FGA', 'FG%', 'FTM', 'FTA', 'FT%', 'FG3M', 'FG3A', 'FG3%']].copy()
 
 # Create final dictionary to house all relevant data to be displayed 
 
@@ -285,3 +285,9 @@ cavs_stats = {'Jarrett Allen': {'nums_df': allen_nums_df, 'pcts_df': allen_pcts_
             'Dean Wade': {'nums_df': wade_nums_df, 'pcts_df': wade_pcts_df, 'stats': wade_dict},
             'Dylan Windler': {'nums_df': windler_nums_df, 'pcts_df': windler_pcts_df, 'stats': windler_dict}
         }
+
+# Sort the dataframes so most recent games display at the top
+
+for key in cavs_stats:
+    cavs_stats[key]['nums_df'].sort_values('DATE', ascending=False, inplace=True)
+    cavs_stats[key]['pcts_df'].sort_values('DATE', ascending=False, inplace=True)

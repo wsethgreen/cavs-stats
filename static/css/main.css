@@ -91,6 +91,19 @@
     margin-left: 40px;
 }
 
+.graph__container {
+    margin: 30px auto 30px auto;
+    width: 90%;
+}
+
+#igraph {
+    height: 500px;
+    width: 900px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .home__table__headers th {
     background-color: #860038;
     color: #f2f3f4;

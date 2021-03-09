@@ -2,8 +2,8 @@ import requests
 import json
 from datetime import datetime, date, timedelta
 
-def time_to_time_delta(time_str):
-    t = datetime.strptime(time_str[0:10], '%Y-%m-%d')
+def date_to_time_delta(date_str):
+    t = datetime.strptime(date_str[0:10], '%Y-%m-%d')
     game_date = date(t.year, t.month, t.day)
     return game_date
 
@@ -20,8 +20,8 @@ def extract_data(json_data):
             value = record.get(key, 0)
             output[key].append(value)
     
-    # handle special case to convert minutes:
-    output['date'] = list(map(time_to_time_delta, output['date']))
+    # handle special case to convert date:
+    output['date'] = list(map(date_to_time_delta, output['date']))
 
     return output
 
