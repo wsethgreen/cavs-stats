@@ -47,19 +47,19 @@ def stats_dict():
             'fg3m', 'fg3a', 'fg3_pct', 'ast', 'reb', 'stl', 'blk', 'turnover']
     
     averages = {}
-    past_5_avgs = {}
+    past_10_avgs = {}
     highs = {}
     lows = {}
     
     for cat in categories:
         averages[cat] = 0
-        past_5_avgs[cat] = 0
+        past_10_avgs[cat] = 0
         highs[cat] = 0
         lows[cat] = 0
 
 
     player_dict['averages'] = averages
-    player_dict['past 5'] = past_5_avgs
+    player_dict['past 10'] = past_10_avgs
     player_dict['highs'] = highs
     player_dict['lows'] = lows
     
@@ -91,38 +91,36 @@ def stat_calcs(player_dict, player_df):
     
     player_dict['games'] = player_df['min'].count()
     
-    # The last 5 games played for each player
-    tail = player_df.tail(5)
+    # The last 10 games played for each player
+    tail = player_df.tail(10)
     
     # Calculate average minutes per game
     
-    min = 'min'
-    
-    avg_min = player_df[min].mean(numeric_only=False)
+    avg_min = player_df['min'].mean(numeric_only=False)
     rounded_avg_min = avg_min.round('1s')
     avg_min_display = str(rounded_avg_min)
     
-    # Calculate average minutes played over the past 5 games
+    # Calculate average minutes played over the past 10 games
     
-    avg_5_min = tail[min].mean(numeric_only=False)
-    rounded_avg_5_min = avg_5_min.round('1s')
-    avg_5_min_display = str(rounded_avg_5_min)
+    avg_10_min = tail['min'].mean(numeric_only=False)
+    rounded_avg_10_min = avg_10_min.round('1s')
+    avg_10_min_display = str(rounded_avg_10_min)
     
     # Calculate season highs/lows for minutes played
     
-    high_min = player_df[min].max()
-    low_min = player_df[min].min()
+    high_min = player_df['min'].max()
+    low_min = player_df['min'].min()
     rounded_high_min = high_min.round('1s')
     rounded_low_min = low_min.round('1s')
     high_min_display = str(rounded_high_min)
     low_min_display = str(rounded_low_min)
     
-    player_dict['averages'][min] = avg_min_display[-5:]
-    player_dict['past 5'][min] = avg_5_min_display[-5:]
-    player_dict['highs'][min] = high_min_display[-5:]
-    player_dict['lows'][min] = low_min_display[-5:]
+    player_dict['averages']['min'] = avg_min_display[-5:]
+    player_dict['past 10']['min'] = avg_10_min_display[-5:]
+    player_dict['highs']['min'] = high_min_display[-5:]
+    player_dict['lows']['min'] = low_min_display[-5:]
     
-    # Calculate the season averages, past 5 game averages, season highs, 
+    # Calculate the season averages, past 10 game averages, season highs, 
     # and season lows for each 'number' category.
     
     # Calculate the season averages for each number category
@@ -132,7 +130,7 @@ def stat_calcs(player_dict, player_df):
     
     for cat in num_cats:
         player_dict['averages'][cat] = round(player_df[cat].mean(), 1)
-        player_dict['past 5'][cat] = round(tail[cat].mean(), 1)
+        player_dict['past 10'][cat] = round(tail[cat].mean(), 1)
         player_dict['highs'][cat] = round(player_df[cat].max(), 1)
         player_dict['lows'][cat] = round(player_df[cat].min(), 1)
 
@@ -149,18 +147,18 @@ def stat_calcs(player_dict, player_df):
     player_dict['averages']['ft_pct'] = 0 if ft_attempt == 0 else round(ft_made/ft_attempt * 100, 1)
     player_dict['averages']['fg3_pct'] = 0 if fg3_attempt == 0 else round(fg3_made/fg3_attempt * 100, 1)
     
-    # Calculate the average shooting percentages over the past 5 games
+    # Calculate the average shooting percentages over the past 10 games
     
-    past_5_fg_made = tail['fgm'].sum()
-    past_5_fg_attempt = tail['fga'].sum()
-    past_5_ft_made = tail['ftm'].sum()
-    past_5_ft_attempt = tail['fta'].sum()
-    past_5_fg3_made = tail['fg3m'].sum()
-    past_5_fg3_attempt = tail['fg3a'].sum()
+    past_10_fg_made = tail['fgm'].sum()
+    past_10_fg_attempt = tail['fga'].sum()
+    past_10_ft_made = tail['ftm'].sum()
+    past_10_ft_attempt = tail['fta'].sum()
+    past_10_fg3_made = tail['fg3m'].sum()
+    past_10_fg3_attempt = tail['fg3a'].sum()
     
-    player_dict['past 5']['fg_pct'] = 0 if past_5_fg_attempt == 0 else round(past_5_fg_made/past_5_fg_attempt * 100, 1)
-    player_dict['past 5']['ft_pct'] = 0 if past_5_ft_attempt == 0 else round(past_5_ft_made/past_5_ft_attempt * 100, 1)
-    player_dict['past 5']['fg3_pct'] = 0 if past_5_fg3_attempt == 0 else round(past_5_fg3_made/past_5_fg3_attempt * 100, 1)
+    player_dict['past 10']['fg_pct'] = 0 if past_10_fg_attempt == 0 else round(past_10_fg_made/past_10_fg_attempt * 100, 1)
+    player_dict['past 10']['ft_pct'] = 0 if past_10_ft_attempt == 0 else round(past_10_ft_made/past_10_ft_attempt * 100, 1)
+    player_dict['past 10']['fg3_pct'] = 0 if past_10_fg3_attempt == 0 else round(past_10_fg3_made/past_10_fg3_attempt * 100, 1)
     
     
     # Calculate the season highs/lows for shooting percentages

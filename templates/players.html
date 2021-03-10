@@ -111,16 +111,8 @@ The link will direct the user to the player's stats page-->
     <iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="/players/{{cavs_key}}/pctsgraph" height="500" width="900"></iframe>
 </div>
 
-<div class='dataframe'>
-
-    <h3 class='table__header'>{{ cavs_key }} Previous 10 Games</h3>
-    {{ html_nums_df_10 | safe }}
-    {{ html_pcts_df_10 | safe }}
-
-</div>
-
 <div>
-    <h3 class='misc__header'>{{ cavs_key }} Prior 5 Game Averages</h3>
+    <h3 class='misc__header'>{{ cavs_key }} Previous 10 games</h3>
 </div>
 
 <div class='tables__container'>
@@ -130,7 +122,7 @@ The link will direct the user to the player's stats page-->
         <table class='table__season__nums'>
     
             <tr class='table__headers'>
-                <th colspan='7'>Last 5 Games</th>
+                <th colspan='7'>Last 10 Games</th>
             </tr>
     
             <tr class='table__col'>
@@ -144,13 +136,13 @@ The link will direct the user to the player's stats page-->
             </tr>
     
             <tr class='table__data'>
-                <td>{{ cavs_stats[cavs_key]['stats']['past 5']['min'] }}</td>
-                <td>{{ cavs_stats[cavs_key]['stats']['past 5']['pts'] }}</td>
-                <td>{{ cavs_stats[cavs_key]['stats']['past 5']['reb'] }}</td>
-                <td>{{ cavs_stats[cavs_key]['stats']['past 5']['ast'] }}</td>
-                <td>{{ cavs_stats[cavs_key]['stats']['past 5']['stl'] }}</td>
-                <td>{{ cavs_stats[cavs_key]['stats']['past 5']['blk'] }}</td>
-                <td>{{ cavs_stats[cavs_key]['stats']['past 5']['turnover'] }}</td>
+                <td>{{ cavs_stats[cavs_key]['stats']['past 10']['min'] }}</td>
+                <td>{{ cavs_stats[cavs_key]['stats']['past 10']['pts'] }}</td>
+                <td>{{ cavs_stats[cavs_key]['stats']['past 10']['reb'] }}</td>
+                <td>{{ cavs_stats[cavs_key]['stats']['past 10']['ast'] }}</td>
+                <td>{{ cavs_stats[cavs_key]['stats']['past 10']['stl'] }}</td>
+                <td>{{ cavs_stats[cavs_key]['stats']['past 10']['blk'] }}</td>
+                <td>{{ cavs_stats[cavs_key]['stats']['past 10']['turnover'] }}</td>
             </tr>
     
         </table>
@@ -162,7 +154,7 @@ The link will direct the user to the player's stats page-->
         <table class='table__season__pcts'>
 
             <tr class='table__headers'>
-                <th colspan='9'>Last 5 Games</th>
+                <th colspan='9'>Last 10 Games</th>
             </tr>
 
             <tr class='table__col'>
@@ -178,15 +170,15 @@ The link will direct the user to the player's stats page-->
             </tr>
 
             <tr class='table__data'>
-                <td>{{ cavs_stats[cavs_key]['stats']['past 5']['fgm'] }}</td>
-                <td>{{ cavs_stats[cavs_key]['stats']['past 5']['fga'] }}</td>
-                <td id='pct__data'>{{ cavs_stats[cavs_key]['stats']['past 5']['fg_pct'] }}%</td>
-                <td>{{ cavs_stats[cavs_key]['stats']['past 5']['ftm'] }}</td>
-                <td>{{ cavs_stats[cavs_key]['stats']['past 5']['fta'] }}</td>
-                <td id='pct__data'>{{ cavs_stats[cavs_key]['stats']['past 5']['ft_pct'] }}%</td>
-                <td>{{ cavs_stats[cavs_key]['stats']['past 5']['fg3m'] }}</td>
-                <td>{{ cavs_stats[cavs_key]['stats']['past 5']['fg3a'] }}</td>
-                <td id='pct__data'>{{ cavs_stats[cavs_key]['stats']['past 5']['fg3_pct'] }}%</td>
+                <td>{{ cavs_stats[cavs_key]['stats']['past 10']['fgm'] }}</td>
+                <td>{{ cavs_stats[cavs_key]['stats']['past 10']['fga'] }}</td>
+                <td id='pct__data'>{{ cavs_stats[cavs_key]['stats']['past 10']['fg_pct'] }}%</td>
+                <td>{{ cavs_stats[cavs_key]['stats']['past 10']['ftm'] }}</td>
+                <td>{{ cavs_stats[cavs_key]['stats']['past 10']['fta'] }}</td>
+                <td id='pct__data'>{{ cavs_stats[cavs_key]['stats']['past 10']['ft_pct'] }}%</td>
+                <td>{{ cavs_stats[cavs_key]['stats']['past 10']['fg3m'] }}</td>
+                <td>{{ cavs_stats[cavs_key]['stats']['past 10']['fg3a'] }}</td>
+                <td id='pct__data'>{{ cavs_stats[cavs_key]['stats']['past 10']['fg3_pct'] }}%</td>
             </tr>
 
         </table>
@@ -197,9 +189,9 @@ The link will direct the user to the player's stats page-->
 
 <div class='dataframe'>
 
-    <h3 class='table__header'>{{ cavs_key }} Previous 5 Games</h3>
-    {{ html_nums_df_5 | safe }}
-    {{ html_pcts_df_5 | safe }}
+    <h3 class='table__header'>{{ cavs_key }} Previous 10 Games</h3>
+    {{ html_nums_df_10 | safe }}
+    {{ html_pcts_df_10 | safe }}
 
 </div>
 
