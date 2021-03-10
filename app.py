@@ -23,7 +23,7 @@ def players(key):
     
     #Create DFs for number and percent stats for the past 10 games for the selected player.
     # Create the players "numbers" df 
-    nums_df_10 = cavs_stats[key]['nums_df'].head()
+    nums_df_10 = cavs_stats[key]['nums_df'].head(10)
     nums_df_10.sort_values('DATE', ascending=False, inplace=True)
     html_nums_df_10 = nums_df_10.to_html(classes='df__table', header="true", index=False)
     # Create the players "percents" df 
@@ -58,7 +58,7 @@ def players(key):
                     mode='lines+markers', name='Assists', 
                     line=dict(color='rgb(253,187,48)', width=2)))
     
-    num_graph.update_layout(margin={"r":0,"t":0,"l":0,"b":0}, title=f'{key} Season Results',
+    num_graph.update_layout(margin={"r":0,"t":40,"l":0,"b":0}, title=f'{key} Season Results',
                     xaxis_title='Date', yaxis_title='Points, Rebounds, Assists')
     
     pio.write_html(num_graph, file='templates/graphs/players_nums_graph.html', auto_open=False)
@@ -80,7 +80,7 @@ def players(key):
                     mode='markers', name='FG3%', 
                     line=dict(color='rgb(253,187,48)', width=2)))
     
-    pct_graph.update_layout(margin={"r":0,"t":0,"l":0,"b":0}, title=f'{key} Season Results',
+    pct_graph.update_layout(margin={"r":0,"t":40,"l":0,"b":0}, title=f'{key} Season Results',
                     xaxis_title='Date', yaxis_title='FG%, FT%, FG3%')
     
     pio.write_html(pct_graph, file='templates/graphs/players_pcts_graph.html', auto_open=False)
