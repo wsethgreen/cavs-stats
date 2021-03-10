@@ -343,6 +343,11 @@
         margin-bottom: 0;
     }
 
+    #igraph {
+        height: 500px;
+        width: 500px;
+    }
+
     .cavs__home__header {
         font-size: 1.25em;
     }
